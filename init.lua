@@ -18,12 +18,7 @@ function Yeelight:setRGB(r,g,b, delay) -- r,g,b[0, 1]
 	local mode = delay and "smooth" or "sudden"
 	delay = delay or 0
 
-	r = math.floor(r * 255)
-	g = math.floor(g * 255)
-	b = math.floor(b * 255)
-
 	local rgb = math.floor(r * 65536 + g * 256 + b)
-
 	self.tcp:send(json.encode({
 		id = 1,
 		method = "set_rgb",
